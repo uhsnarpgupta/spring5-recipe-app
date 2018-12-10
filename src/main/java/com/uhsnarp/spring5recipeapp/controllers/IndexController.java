@@ -1,10 +1,11 @@
 package com.uhsnarp.spring5recipeapp.controllers;
 
 import com.uhsnarp.spring5recipeapp.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -29,6 +30,8 @@ public class IndexController {
 //
 //        System.out.println("Cat ID is: " + categoryOptional.get().getId());
 //        System.out.println("UOM ID is: " + unitOfMeasureOptional.get().getId());
+
+        log.debug("Getting index page");
         model.addAttribute("recipes", recipeService.getRecipes());
 
         return "index";
